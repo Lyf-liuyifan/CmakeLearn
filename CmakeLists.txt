@@ -1,0 +1,15 @@
+project(CMakeLearn CXX )
+
+cmake_minimum_required(VERSION 3.10)
+
+set(CMAKE_CXX_STANDARD 14)
+
+file(GLOB SRCPATH ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
+
+#file(GLOB INCLUDEPATH $(CMAKE_CURRENT_SOURCE_DIR)/include/*.h)
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/build/bin)
+
+add_executable(CMakeLearn ${SRCPATH})
