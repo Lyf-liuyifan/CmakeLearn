@@ -6,9 +6,11 @@ set(CMAKE_CXX_STANDARD 14)
 
 file(GLOB SRCPATH ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
 
-#file(GLOB INCLUDEPATH $(CMAKE_CURRENT_SOURCE_DIR)/include/*.h)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR}/makelib/include)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+link_directories(${CMAKE_CURRENT_SOURCE_DIR}/makelib/build/lib)
+
+link_libraries(CMakeLearnLibTest)
 
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/build/bin)
 

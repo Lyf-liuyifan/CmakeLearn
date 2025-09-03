@@ -1,0 +1,3 @@
+D:/gitHub/CmakeLearn/makelib/build/CMakeFiles/CMakeLearnLibTest.dir
+D:/gitHub/CmakeLearn/makelib/build/CMakeFiles/edit_cache.dir
+D:/gitHub/CmakeLearn/makelib/build/CMakeFiles/rebuild_cache.dir
