@@ -86,14 +86,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\gitHub\CmakeLearn\build\CMakeFiles D:\gitHub\CmakeLearn\build\\CMakeFiles\progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
+	cd /d D:\gitHub\CmakeLearn\build && $(CMAKE_COMMAND) -E cmake_progress_start D:\gitHub\CmakeLearn\build\CMakeFiles D:\gitHub\CmakeLearn\build\makelib\\CMakeFiles\progress.marks
+	cd /d D:\gitHub\CmakeLearn\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 makelib/all
 	$(CMAKE_COMMAND) -E cmake_progress_start D:\gitHub\CmakeLearn\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 clean
+	cd /d D:\gitHub\CmakeLearn\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 makelib/clean
 .PHONY : clean
 
 # The main clean target
@@ -102,44 +102,80 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 preinstall
+	cd /d D:\gitHub\CmakeLearn\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 makelib/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 preinstall
+	cd /d D:\gitHub\CmakeLearn\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 makelib/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
+	cd /d D:\gitHub\CmakeLearn\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named CMakeLearnLib
+# Convenience name for target.
+makelib/CMakeFiles/CMakeLearnLib.dir/rule:
+	cd /d D:\gitHub\CmakeLearn\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 makelib/CMakeFiles/CMakeLearnLib.dir/rule
+.PHONY : makelib/CMakeFiles/CMakeLearnLib.dir/rule
 
-# Build rule for target.
-CMakeLearnLib: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeLearnLib
+# Convenience name for target.
+CMakeLearnLib: makelib/CMakeFiles/CMakeLearnLib.dir/rule
 .PHONY : CMakeLearnLib
 
 # fast build rule for target.
 CMakeLearnLib/fast:
-	$(MAKE) $(MAKESILENT) -f makelib\CMakeFiles\CMakeLearnLib.dir\build.make makelib/CMakeFiles/CMakeLearnLib.dir/build
+	cd /d D:\gitHub\CmakeLearn\build && $(MAKE) $(MAKESILENT) -f makelib\CMakeFiles\CMakeLearnLib.dir\build.make makelib/CMakeFiles/CMakeLearnLib.dir/build
 .PHONY : CMakeLearnLib/fast
 
-#=============================================================================
-# Target rules for targets named CmakeLearn
+src/arithmetic.obj: src/arithmetic.cpp.obj
+.PHONY : src/arithmetic.obj
 
-# Build rule for target.
-CmakeLearn: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CmakeLearn
-.PHONY : CmakeLearn
+# target to build an object file
+src/arithmetic.cpp.obj:
+	cd /d D:\gitHub\CmakeLearn\build && $(MAKE) $(MAKESILENT) -f makelib\CMakeFiles\CMakeLearnLib.dir\build.make makelib/CMakeFiles/CMakeLearnLib.dir/src/arithmetic.cpp.obj
+.PHONY : src/arithmetic.cpp.obj
 
-# fast build rule for target.
-CmakeLearn/fast:
-	$(MAKE) $(MAKESILENT) -f src\CMakeFiles\CmakeLearn.dir\build.make src/CMakeFiles/CmakeLearn.dir/build
-.PHONY : CmakeLearn/fast
+src/arithmetic.i: src/arithmetic.cpp.i
+.PHONY : src/arithmetic.i
+
+# target to preprocess a source file
+src/arithmetic.cpp.i:
+	cd /d D:\gitHub\CmakeLearn\build && $(MAKE) $(MAKESILENT) -f makelib\CMakeFiles\CMakeLearnLib.dir\build.make makelib/CMakeFiles/CMakeLearnLib.dir/src/arithmetic.cpp.i
+.PHONY : src/arithmetic.cpp.i
+
+src/arithmetic.s: src/arithmetic.cpp.s
+.PHONY : src/arithmetic.s
+
+# target to generate assembly for a file
+src/arithmetic.cpp.s:
+	cd /d D:\gitHub\CmakeLearn\build && $(MAKE) $(MAKESILENT) -f makelib\CMakeFiles\CMakeLearnLib.dir\build.make makelib/CMakeFiles/CMakeLearnLib.dir/src/arithmetic.cpp.s
+.PHONY : src/arithmetic.cpp.s
+
+src/main.obj: src/main.cpp.obj
+.PHONY : src/main.obj
+
+# target to build an object file
+src/main.cpp.obj:
+	cd /d D:\gitHub\CmakeLearn\build && $(MAKE) $(MAKESILENT) -f makelib\CMakeFiles\CMakeLearnLib.dir\build.make makelib/CMakeFiles/CMakeLearnLib.dir/src/main.cpp.obj
+.PHONY : src/main.cpp.obj
+
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	cd /d D:\gitHub\CmakeLearn\build && $(MAKE) $(MAKESILENT) -f makelib\CMakeFiles\CMakeLearnLib.dir\build.make makelib/CMakeFiles/CMakeLearnLib.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	cd /d D:\gitHub\CmakeLearn\build && $(MAKE) $(MAKESILENT) -f makelib\CMakeFiles\CMakeLearnLib.dir\build.make makelib/CMakeFiles/CMakeLearnLib.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
 # Help Target
 help:
@@ -150,7 +186,12 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... CMakeLearnLib
-	@echo ... CmakeLearn
+	@echo ... src/arithmetic.obj
+	@echo ... src/arithmetic.i
+	@echo ... src/arithmetic.s
+	@echo ... src/main.obj
+	@echo ... src/main.i
+	@echo ... src/main.s
 .PHONY : help
 
 
@@ -162,6 +203,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
+	cd /d D:\gitHub\CmakeLearn\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

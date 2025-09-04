@@ -62,52 +62,126 @@ CMAKE_BINARY_DIR = D:\gitHub\CmakeLearn\build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/CMakeLearn.dir/all
+all: makelib/all
+all: src/all
 .PHONY : all
 
 # The main recursive "codegen" target.
-codegen: CMakeFiles/CMakeLearn.dir/codegen
+codegen: makelib/codegen
+codegen: src/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
-preinstall:
+preinstall: makelib/preinstall
+preinstall: src/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/CMakeLearn.dir/clean
+clean: makelib/clean
+clean: src/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/CMakeLearn.dir
+# Directory level rules for directory makelib
+
+# Recursive "all" directory target.
+makelib/all: makelib/CMakeFiles/CMakeLearnLib.dir/all
+.PHONY : makelib/all
+
+# Recursive "codegen" directory target.
+makelib/codegen: makelib/CMakeFiles/CMakeLearnLib.dir/codegen
+.PHONY : makelib/codegen
+
+# Recursive "preinstall" directory target.
+makelib/preinstall:
+.PHONY : makelib/preinstall
+
+# Recursive "clean" directory target.
+makelib/clean: makelib/CMakeFiles/CMakeLearnLib.dir/clean
+.PHONY : makelib/clean
+
+#=============================================================================
+# Directory level rules for directory src
+
+# Recursive "all" directory target.
+src/all: src/CMakeFiles/CmakeLearn.dir/all
+.PHONY : src/all
+
+# Recursive "codegen" directory target.
+src/codegen: src/CMakeFiles/CmakeLearn.dir/codegen
+.PHONY : src/codegen
+
+# Recursive "preinstall" directory target.
+src/preinstall:
+.PHONY : src/preinstall
+
+# Recursive "clean" directory target.
+src/clean: src/CMakeFiles/CmakeLearn.dir/clean
+.PHONY : src/clean
+
+#=============================================================================
+# Target rules for target makelib/CMakeFiles/CMakeLearnLib.dir
 
 # All Build rule for target.
-CMakeFiles/CMakeLearn.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CMakeLearn.dir\build.make CMakeFiles/CMakeLearn.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CMakeLearn.dir\build.make CMakeFiles/CMakeLearn.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\gitHub\CmakeLearn\build\CMakeFiles --progress-num=1,2 "Built target CMakeLearn"
-.PHONY : CMakeFiles/CMakeLearn.dir/all
+makelib/CMakeFiles/CMakeLearnLib.dir/all:
+	$(MAKE) $(MAKESILENT) -f makelib\CMakeFiles\CMakeLearnLib.dir\build.make makelib/CMakeFiles/CMakeLearnLib.dir/depend
+	$(MAKE) $(MAKESILENT) -f makelib\CMakeFiles\CMakeLearnLib.dir\build.make makelib/CMakeFiles/CMakeLearnLib.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\gitHub\CmakeLearn\build\CMakeFiles --progress-num=1,2,3 "Built target CMakeLearnLib"
+.PHONY : makelib/CMakeFiles/CMakeLearnLib.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/CMakeLearn.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\gitHub\CmakeLearn\build\CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/CMakeLearn.dir/all
+makelib/CMakeFiles/CMakeLearnLib.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\gitHub\CmakeLearn\build\CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 makelib/CMakeFiles/CMakeLearnLib.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start D:\gitHub\CmakeLearn\build\CMakeFiles 0
-.PHONY : CMakeFiles/CMakeLearn.dir/rule
+.PHONY : makelib/CMakeFiles/CMakeLearnLib.dir/rule
 
 # Convenience name for target.
-CMakeLearn: CMakeFiles/CMakeLearn.dir/rule
-.PHONY : CMakeLearn
+CMakeLearnLib: makelib/CMakeFiles/CMakeLearnLib.dir/rule
+.PHONY : CMakeLearnLib
 
 # codegen rule for target.
-CMakeFiles/CMakeLearn.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CMakeLearn.dir\build.make CMakeFiles/CMakeLearn.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\gitHub\CmakeLearn\build\CMakeFiles --progress-num=1,2 "Finished codegen for target CMakeLearn"
-.PHONY : CMakeFiles/CMakeLearn.dir/codegen
+makelib/CMakeFiles/CMakeLearnLib.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f makelib\CMakeFiles\CMakeLearnLib.dir\build.make makelib/CMakeFiles/CMakeLearnLib.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\gitHub\CmakeLearn\build\CMakeFiles --progress-num=1,2,3 "Finished codegen for target CMakeLearnLib"
+.PHONY : makelib/CMakeFiles/CMakeLearnLib.dir/codegen
 
 # clean rule for target.
-CMakeFiles/CMakeLearn.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CMakeLearn.dir\build.make CMakeFiles/CMakeLearn.dir/clean
-.PHONY : CMakeFiles/CMakeLearn.dir/clean
+makelib/CMakeFiles/CMakeLearnLib.dir/clean:
+	$(MAKE) $(MAKESILENT) -f makelib\CMakeFiles\CMakeLearnLib.dir\build.make makelib/CMakeFiles/CMakeLearnLib.dir/clean
+.PHONY : makelib/CMakeFiles/CMakeLearnLib.dir/clean
+
+#=============================================================================
+# Target rules for target src/CMakeFiles/CmakeLearn.dir
+
+# All Build rule for target.
+src/CMakeFiles/CmakeLearn.dir/all: makelib/CMakeFiles/CMakeLearnLib.dir/all
+	$(MAKE) $(MAKESILENT) -f src\CMakeFiles\CmakeLearn.dir\build.make src/CMakeFiles/CmakeLearn.dir/depend
+	$(MAKE) $(MAKESILENT) -f src\CMakeFiles\CmakeLearn.dir\build.make src/CMakeFiles/CmakeLearn.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\gitHub\CmakeLearn\build\CMakeFiles --progress-num=4,5 "Built target CmakeLearn"
+.PHONY : src/CMakeFiles/CmakeLearn.dir/all
+
+# Build rule for subdir invocation for target.
+src/CMakeFiles/CmakeLearn.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\gitHub\CmakeLearn\build\CMakeFiles 5
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/CMakeFiles/CmakeLearn.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\gitHub\CmakeLearn\build\CMakeFiles 0
+.PHONY : src/CMakeFiles/CmakeLearn.dir/rule
+
+# Convenience name for target.
+CmakeLearn: src/CMakeFiles/CmakeLearn.dir/rule
+.PHONY : CmakeLearn
+
+# codegen rule for target.
+src/CMakeFiles/CmakeLearn.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f src\CMakeFiles\CmakeLearn.dir\build.make src/CMakeFiles/CmakeLearn.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\gitHub\CmakeLearn\build\CMakeFiles --progress-num=4,5 "Finished codegen for target CmakeLearn"
+.PHONY : src/CMakeFiles/CmakeLearn.dir/codegen
+
+# clean rule for target.
+src/CMakeFiles/CmakeLearn.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src\CMakeFiles\CmakeLearn.dir\build.make src/CMakeFiles/CmakeLearn.dir/clean
+.PHONY : src/CMakeFiles/CmakeLearn.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

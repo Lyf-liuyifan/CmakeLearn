@@ -1,0 +1,2 @@
+D:\msys2\run\ucrt64\bin\ar.exe qc D:\gitHub\CmakeLearn\makelib\build\lib\libCMakeLearnLib.a CMakeFiles/CMakeLearnLib.dir/src/arithmetic.cpp.obj CMakeFiles/CMakeLearnLib.dir/src/main.cpp.obj
+D:\msys2\run\ucrt64\bin\ranlib.exe D:\gitHub\CmakeLearn\makelib\build\lib\libCMakeLearnLib.a

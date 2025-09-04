@@ -1,7 +1,9 @@
 {
 	"InstallScripts" : 
 	[
-		"D:/gitHub/CmakeLearn/build/cmake_install.cmake"
+		"D:/gitHub/CmakeLearn/build/cmake_install.cmake",
+		"D:/gitHub/CmakeLearn/build/makelib/cmake_install.cmake",
+		"D:/gitHub/CmakeLearn/build/src/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

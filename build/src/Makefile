@@ -86,14 +86,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\gitHub\CmakeLearn\build\CMakeFiles D:\gitHub\CmakeLearn\build\\CMakeFiles\progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
+	cd /d D:\gitHub\CmakeLearn\build && $(CMAKE_COMMAND) -E cmake_progress_start D:\gitHub\CmakeLearn\build\CMakeFiles D:\gitHub\CmakeLearn\build\src\\CMakeFiles\progress.marks
+	cd /d D:\gitHub\CmakeLearn\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/all
 	$(CMAKE_COMMAND) -E cmake_progress_start D:\gitHub\CmakeLearn\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 clean
+	cd /d D:\gitHub\CmakeLearn\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/clean
 .PHONY : clean
 
 # The main clean target
@@ -102,44 +102,56 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 preinstall
+	cd /d D:\gitHub\CmakeLearn\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 preinstall
+	cd /d D:\gitHub\CmakeLearn\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
+	cd /d D:\gitHub\CmakeLearn\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named CMakeLearnLib
+# Convenience name for target.
+src/CMakeFiles/CmakeLearn.dir/rule:
+	cd /d D:\gitHub\CmakeLearn\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/CMakeFiles/CmakeLearn.dir/rule
+.PHONY : src/CMakeFiles/CmakeLearn.dir/rule
 
-# Build rule for target.
-CMakeLearnLib: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeLearnLib
-.PHONY : CMakeLearnLib
-
-# fast build rule for target.
-CMakeLearnLib/fast:
-	$(MAKE) $(MAKESILENT) -f makelib\CMakeFiles\CMakeLearnLib.dir\build.make makelib/CMakeFiles/CMakeLearnLib.dir/build
-.PHONY : CMakeLearnLib/fast
-
-#=============================================================================
-# Target rules for targets named CmakeLearn
-
-# Build rule for target.
-CmakeLearn: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CmakeLearn
+# Convenience name for target.
+CmakeLearn: src/CMakeFiles/CmakeLearn.dir/rule
 .PHONY : CmakeLearn
 
 # fast build rule for target.
 CmakeLearn/fast:
-	$(MAKE) $(MAKESILENT) -f src\CMakeFiles\CmakeLearn.dir\build.make src/CMakeFiles/CmakeLearn.dir/build
+	cd /d D:\gitHub\CmakeLearn\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\CmakeLearn.dir\build.make src/CMakeFiles/CmakeLearn.dir/build
 .PHONY : CmakeLearn/fast
+
+main.obj: main.cpp.obj
+.PHONY : main.obj
+
+# target to build an object file
+main.cpp.obj:
+	cd /d D:\gitHub\CmakeLearn\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\CmakeLearn.dir\build.make src/CMakeFiles/CmakeLearn.dir/main.cpp.obj
+.PHONY : main.cpp.obj
+
+main.i: main.cpp.i
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	cd /d D:\gitHub\CmakeLearn\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\CmakeLearn.dir\build.make src/CMakeFiles/CmakeLearn.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	cd /d D:\gitHub\CmakeLearn\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\CmakeLearn.dir\build.make src/CMakeFiles/CmakeLearn.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -149,8 +161,10 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... CMakeLearnLib
 	@echo ... CmakeLearn
+	@echo ... main.obj
+	@echo ... main.i
+	@echo ... main.s
 .PHONY : help
 
 
@@ -162,6 +176,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
+	cd /d D:\gitHub\CmakeLearn\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

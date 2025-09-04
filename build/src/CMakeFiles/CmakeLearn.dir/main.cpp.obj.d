@@ -1,4 +1,4 @@
-CMakeFiles/CMakeLearn.dir/src/main.cpp.obj: \
+src/CMakeFiles/CmakeLearn.dir/main.cpp.obj: \
  D:\gitHub\CmakeLearn\src\main.cpp \
  D:/msys2/run/ucrt64/include/c++/14.2.0/iostream \
  D:/msys2/run/ucrt64/include/c++/14.2.0/bits/requires_hosted.h \

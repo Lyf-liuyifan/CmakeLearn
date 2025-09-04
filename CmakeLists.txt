@@ -4,14 +4,24 @@ cmake_minimum_required(VERSION 3.10)
 
 set(CMAKE_CXX_STANDARD 14)
 
-file(GLOB SRCPATH ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
+set(LIBARY_INCLUDE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/makelib/include)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR}/makelib/include)
+set(EXE_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/build/bin)
 
-link_directories(${CMAKE_CURRENT_SOURCE_DIR}/makelib/build/lib)
+set(INCLUDE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-link_libraries(CMakeLearnLibTest)
+add_subdirectory(makelib)
 
-set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/build/bin)
+add_subdirectory(src)
 
-add_executable(CMakeLearn ${SRCPATH})
+# file(GLOB SRCPATH ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
+
+# include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR}/makelib/include)
+
+# link_directories(${CMAKE_CURRENT_SOURCE_DIR}/makelib/build/lib)
+
+# link_libraries(CMakeLearnLibTest)
+
+# set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/build/bin)
+
+# add_executable(CMakeLearn ${SRCPATH})

@@ -1,3 +1,8 @@
-D:/gitHub/CmakeLearn/build/CMakeFiles/CMakeLearn.dir
 D:/gitHub/CmakeLearn/build/CMakeFiles/edit_cache.dir
 D:/gitHub/CmakeLearn/build/CMakeFiles/rebuild_cache.dir
+D:/gitHub/CmakeLearn/build/makelib/CMakeFiles/CMakeLearnLib.dir
+D:/gitHub/CmakeLearn/build/makelib/CMakeFiles/edit_cache.dir
+D:/gitHub/CmakeLearn/build/makelib/CMakeFiles/rebuild_cache.dir
+D:/gitHub/CmakeLearn/build/src/CMakeFiles/CmakeLearn.dir
+D:/gitHub/CmakeLearn/build/src/CMakeFiles/edit_cache.dir
+D:/gitHub/CmakeLearn/build/src/CMakeFiles/rebuild_cache.dir

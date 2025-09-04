@@ -4,7 +4,7 @@
 # compile CXX with D:/msys2/run/ucrt64/bin/c++.exe
 CXX_DEFINES = 
 
-CXX_INCLUDES = @CMakeFiles/CMakeLearn.dir/includes_CXX.rsp
+CXX_INCLUDES = @CMakeFiles/CMakeLearnLib.dir/includes_CXX.rsp
 
 CXX_FLAGS = -std=gnu++14
 

@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.10)
+
+project(CmakeLearn CXX)
+
+file(GLOB SRCPATH ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
+
+include_directories(${LIBARY_INCLUDE_PATH} ${INCLUDE_PATH})
+
+link_directories(${LIBARY_INCLUDE_PATH})
+
+link_libraries(CMakeLearnLib)
+
+set(EXECUTABLE_OUTPUT_PATH ${EXE_OUTPUT_PATH})
+
+add_executable(CmakeLearn ${SRCPATH})
