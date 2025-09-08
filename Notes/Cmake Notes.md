@@ -56,7 +56,7 @@ project(<PROJECT-NAME>
 
 #### 2.2.3add_executable
 
-​	假如不需要寻找头文件头文件路径能直接找到不需要额外指定头文件搜索路径那么可以使用该命令添加生成exe需要的实现文件。
+​	假如不需要寻找头文件头文件路径，能直接找到，不需要额外指定头文件搜索路径，那么可以使用该命令添加生成exe需要的实现文件。
 
 ```cmake
 add_executable(可执行程序名 源文件名称)
@@ -188,7 +188,7 @@ add_library(库名称 STATIC 源文件1 [源文件2] ...)
 
 在Windows中虽然库名和Linux格式不同，但也只需指定出名字即可。
 
-#### 2.4.2set_target_properties（通用静动态库）
+#### 2.4.2set_target_properties（通用静动态库，而且最推荐）
 
 用于设置输出路径的（动态库和静态库通用），也有其他用法，如名字一样设置属性的都可以，比如指定编译语言的版本c++17等。
 
@@ -210,6 +210,14 @@ set_target_properties(myLib PROPERTIES
 ```
 
 **注意**：必须在target定义之后才可以用。不用这个命令就用set命令去改变宏的值。
+
+**Windows和Linux下的区别:**
+
+- Windows:
+  - .exe和.dll属于RUNTIME_OUTPUT_DIRECTORY
+  - .lib用ARCHIVE_OUTPUT_DIRECTORY
+- Linux：
+  - .so是LIBRARY_OUTPUT_DIRECTORY，.a是用ARCHIVE_OUTPUT_DIRECTORY，.exe使用RUNTIME_OUTPUT_DIRECTORY
 
 ### 2.5链接静态库
 
@@ -279,7 +287,7 @@ target_link_libraries(D A)
 静态库会在生成可执行程序的链接阶段被打包到可执行程序中，所以可执行程序启动，静态库就被加载到内存中了。
 动态库在生成可执行程序的链接阶段不会被打包到可执行程序中，当可执行程序被启动并且调用了动态库中的函数的时候，动态库才会被加载到内存
 
-#### link_libraries和target_link_libraries区别
+##### link_libraries和target_link_libraries区别
 
 🔹 `link_libraries`
 
@@ -403,31 +411,184 @@ list(REMOVE_ITEM SRC_1 ${PROJECT_SOURCE_DIR}/main.cpp)
 
 关于list命令还有其它功能，但是并不常用，在此就不一一进行举例介绍了。
 
-获取 list 的长度。
+**获取 list 的长度**
 
 ```
 list(LENGTH <list> <output variable>)
 ```
 
 LENGTH：子命令LENGTH用于读取列表长度
-\<list>：当前操作的列表
-\<output variable>：新创建的变量，用于存储列表的长度。
-读取列表中指定索引的的元素，可以指定多个索引
+
+- \<list>：当前操作的列表
+
+- \<output variable>：新创建的变量，用于存储列表的长度。
+
+**读取列表中指定索引的的元素，可以指定多个索引**
 
 ```
 list(GET <list> <element index> [<element index> ...] <output variable>)
 ```
 
-\<list>：当前操作的列表
-\<element index>：列表元素的索引
-从0开始编号，索引0的元素为列表中的第一个元素；
-索引也可以是负数，-1表示列表的最后一个元素，-2表示列表倒数第二个元素，以此类推
-当索引（不管是正还是负）超过列表的长度，运行会报错
-\<output variable>：新创建的变量，存储指定索引元素的返回结果，也是一个列表。
-将列表中的元素用连接符（字符串）连接起来组成一个字符串
+- \<list>：当前操作的列表
+- \<element index>：列表元素的索引
+  从0开始编号，索引0的元素为列表中的第一个元素；
+  索引也可以是负数，-1表示列表的最后一个元素，-2表示列表倒数第二个元素，以此类推
+  当索引（不管是正还是负）超过列表的长度，运行会报错
+- \<output variable>：新创建的变量，存储指定索引元素的返回结果，也是一个列表。
 
 **list还有不少功能，可以查官方文档**
 
 ### 2.10如何构建嵌套的复杂项目
 
 ​	如果项目很大，或者项目中有很多的源码目录，在通过CMake管理项目的时候如果只使用一个CMakeLists.txt，那么这个文件相对会比较复杂，有一种化繁为简的方式就是给每个源码目录都添加一个CMakeLists.txt文件（头文件目录不需要），这样每个文件都不会太复杂，而且更灵活，更容易维护。
+
+#### 2.10.1add_subdirectory
+
+​	添加子目录，在此CmakeLists.txt文件执行到这个命令的时候会进入到该目录下的CmakeLists.txt文件中进行执行。
+
+```Cmake
+add_subdirectory(source_dir [binary_dir] [EXCLUDE_FROM_ALL])
+```
+
+- source_dir : 指定了CmakeLists.txt源文件和代码文件的位置，其实就是指定子目录
+- binary_dir:指定输出文件的路径，一般不需要指定，可以忽略。
+- EXCLUDE_FROM_ALL:在子路径下的目标默认不会被包含到父路径的ALL目标里，并且也会被排除在IDE工程文件之外。用户必须显示的构建在子路径下的目标。也可以忽略一般。
+
+### 2.11流程控制
+
+#### 2.11.1条件判断if命令
+
+```cmake
+if(<condition>)
+	<commands>
+elseif(<condition>) #可选块可以重复
+	<commands>
+else()		#可选块
+	<commands>
+endif()
+```
+
+##### condition为表达式的情况
+
+- 如果是1，ON，YES，TRUE，Y，非零值，非空字符串，条件返回真
+- 如果是0，OFF，NO，FALSE，N，IGNORE，NOTFOUND，空字符串，条件返回否
+
+#### 2.11.2逻辑运算符
+
+- NOT(就是取反)
+- ADN
+- OR(或)
+
+#### 2.11.3比较运算符·
+
+- LESS
+- GREATER
+- EQUAL
+- LESS_EQUAL
+- GREATER_EQUAL
+
+**基于字符串的比较**
+
+- STRLESS
+- STRGREATER
+- STREQUAL
+- STRLESS_EQUAL
+- STRGREATER_EQUAL
+
+#### 2.11.4文件相关的逻辑操作
+
+- 判断文件是否存在或者目录是否存在
+
+  - ```
+    if(EXISTS path-to-file-or-directory)
+    ```
+
+- 判断是否是目录
+
+  - ```
+    if(IS_DIRECTORY path)
+    #path必须是绝对路径
+    ```
+
+- 判断是否是软连接
+
+  - ```
+    if(IS_SYMLINK file-name)
+    #file-name也必须是绝对路径
+    ```
+
+- 判断是不是绝对路径
+
+  - ```
+    if(IS_ABSOLUTE path)
+    ```
+
+#### 2.11.5其他
+
+- 判断某个元素是否在列表中
+
+  - ```
+    if(<variable|string> IN_LIST <variable>)
+    ```
+
+- 比较两个路径是否相同
+
+  - ```
+    if(<variable|string> PATH_EQUAL <variable|string>)
+    ```
+
+  - cmake版本大于3.24
+
+### 2.12循环
+
+#### 2.12.1foreach
+
+```
+foreach(<loop_var> <items>)
+	<commands>
+endforeach()
+```
+
+​	通过foreach我们可以对items中的数据进行遍历，然后通过loop_var将遍历到的当前值取出，在取值的时候有以下几种用法：
+
+方法1：
+
+```
+foreach(<loop_var> RANGE <step>)
+```
+
+- RANGE:关键词，表示要遍历的范围
+- stop:这是一个正整数，表示的范围的结束值，在遍历的时候从0开始，最大值为stop。
+- loop_var：存储每次循环取出来的值
+
+还有其他几种方法，要用到的时候在去官方文档进行查阅吧。
+
+3.Cmake的宏
+
+### 3.1宏定义
+
+​	在代码中有debug版本和release版本，我们想要灵活的进行版本调用，在gcc和g++中编译的时候是加上-D<宏的名字>来做操作的如：
+
+```
+#ifdef DBUG
+```
+
+那么我们想打开这个宏我们就需要在编译的时候加上-DDBUG这个选项
+
+​	那我们想要在cmake中打开这个操作就需要用到这个命令
+
+#### 3.1.1add_definitions(-D<宏名称>)
+
+### 3.2预定义宏
+
+|                 宏名称                  |                             功能                             |
+| :-------------------------------------: | :----------------------------------------------------------: |
+|           PROJECT_SOURCE_DIR            |                  当前project()的源码根目录                   |
+|           PROJECT_BINARY_DIR            |         当前project()的构建目录，通常是-B指定的路径          |
+|        CMAKE_CURRENT_SOURCE_DIR         |              当前处理的CmakeLists.txt所在的目录              |
+|        CMAKE_CURRENT_BINARY_DIR         |                      当前指定的构建目录                      |
+|         EXECUTABLE_OUTPUT_PATH          |              重新定义二进制可执行程序的存放位置              |
+| LIBRARY_OUTPUT_PATH（太老了不推荐使用） |                 重新定义链接库文件的存放位置                 |
+|            CMAKE_BINARY_DIR             | 项目实际构建路径，假设在build目录进行的构建，那么得到的也是这个目录的路径（是最顶层） |
+|            CMAKE_SOURCE_DIR             |     最顶层Cmake项目的源码目录（整个构建树的顶层源目录）      |
+
